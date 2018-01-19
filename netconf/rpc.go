@@ -89,6 +89,10 @@ func MethodUnlock(target string) RawMethod {
 	return RawMethod(fmt.Sprintf("<unlock><target><%s/></target></unlock>", target))
 }
 
+func MethodGet() RawMethod {
+	return RawMethod(fmt.Sprintf("<get></get>"))
+}
+
 // MethodGetConfig files a Netconf get-config source request with the remote host
 func MethodGetConfig(source string) RawMethod {
 	return RawMethod(fmt.Sprintf("<get-config><source><%s/></source></get-config>", source))
@@ -101,6 +105,10 @@ func MethodEditConfig(target string, operation string, config string) RawMethod 
 func MethodDeleteConfig(target string) RawMethod {
 	// target: if using Netopeer2, only 'startup' can be specified.
 	return RawMethod(fmt.Sprintf("<delete-config><target><%s/></target></delete-config>", target))
+}
+
+func MethodCopyConfig(target string, source strung) RawMethod {
+	return RawMethod(fmt.Sprintf("<copy-config><target>%s</target><source>%s</source></copy-config>", target, source))
 }
 
 func MethodCommit() RawMethod {
