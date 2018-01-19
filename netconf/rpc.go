@@ -107,7 +107,7 @@ func MethodDeleteConfig(target string) RawMethod {
 	return RawMethod(fmt.Sprintf("<delete-config><target><%s/></target></delete-config>", target))
 }
 
-func MethodCopyConfig(target string, source strung) RawMethod {
+func MethodCopyConfig(target string, source string) RawMethod {
 	return RawMethod(fmt.Sprintf("<copy-config><target>%s</target><source>%s</source></copy-config>", target, source))
 }
 
