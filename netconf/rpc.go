@@ -93,3 +93,16 @@ func MethodUnlock(target string) RawMethod {
 func MethodGetConfig(source string) RawMethod {
 	return RawMethod(fmt.Sprintf("<get-config><source><%s/></source></get-config>", source))
 }
+
+func MethodEditConfig(target string, operation string, config string) RawMethod {
+	return RawMethod(fmt.Sprintf("<edit-config><target><%s/></target><default-operation>%s</default-operation><config>%s</config></edit-config>", target, operation, config))
+}
+
+func MethodDeleteConfig(target string) RawMethod {
+	// target: if using Netopeer2, only 'startup' can be specified.
+	return RawMethod(fmt.Sprintf("<delete-config><target><%s/></target></delete-config>", target))
+}
+
+func MethodCommit() RawMethod {
+	return RawMethod("<commit/>")
+}
