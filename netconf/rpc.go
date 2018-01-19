@@ -108,7 +108,7 @@ func MethodDeleteConfig(target string) RawMethod {
 }
 
 func MethodCopyConfig(target string, source string) RawMethod {
-	return RawMethod(fmt.Sprintf("<copy-config><target>%s</target><source>%s</source></copy-config>", target, source))
+	return RawMethod(fmt.Sprintf("<copy-config><target><%s/></target><source><%s/></source></copy-config>", target, source))
 }
 
 func MethodCommit() RawMethod {
