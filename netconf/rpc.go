@@ -114,3 +114,7 @@ func MethodCopyConfig(target string, source string) RawMethod {
 func MethodCommit() RawMethod {
 	return RawMethod("<commit/>")
 }
+
+func MethodCloseSession() RawMethod {
+	return RawMethod("<close-session/>")
+}
