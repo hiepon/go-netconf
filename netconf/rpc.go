@@ -4,18 +4,20 @@ import (
 	"bytes"
 	"encoding/xml"
 	"fmt"
+
+	"github.com/satori/go.uuid"
 )
 
 // RPCMessage represents an RPC Message to be sent.
 type RPCMessage struct {
-	MessageID string
+	MessageID uuid.UUID
 	Methods   []RPCMethod
 }
 
 // NewRPCMessage generates a new RPC Message structure with the provided methods
 func NewRPCMessage(methods []RPCMethod) *RPCMessage {
 	return &RPCMessage{
-		MessageID: uuid(),
+		MessageID: uuid.Must(uuid.NewV4()),
 		Methods:   methods,
 	}
 }
@@ -32,7 +34,7 @@ func (m *RPCMessage) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
 		Xmlns     string `xml:"xmlns,attr"`
 		Methods   []byte `xml:",innerxml"`
 	}{
-		m.MessageID,
+		m.MessageID.String(),
 		"urn:ietf:params:xml:ns:netconf:base:1.0",
 		buf.Bytes(),
 	}
