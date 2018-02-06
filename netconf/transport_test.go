@@ -36,13 +36,13 @@ func newTransportTest(input string) (*transportTest, *bytes.Buffer) {
 
 var deviceHello = `<!-- No zombies were killed during the creation of this user interface -->
 <!-- user bbennett, class j-super-user -->
-<hello>
+<hello xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
   <capabilities>
-    <capability>urn:ietf:params:xml:ns:netconf:base:1.0</capability>
-    <capability>urn:ietf:params:xml:ns:netconf:capability:candidate:1.0</capability>
-    <capability>urn:ietf:params:xml:ns:netconf:capability:confirmed-commit:1.0</capability>
-    <capability>urn:ietf:params:xml:ns:netconf:capability:validate:1.0</capability>
-    <capability>urn:ietf:params:xml:ns:netconf:capability:url:1.0?protocol=http,ftp,file</capability>
+    <capability>urn:ietf:params:netconf:base:1.0</capability>
+    <capability>urn:ietf:params:netconf:capability:candidate:1.0</capability>
+    <capability>urn:ietf:params:netconf:capability:confirmed-commit:1.0</capability>
+    <capability>urn:ietf:params:netconf:capability:validate:1.0</capability>
+    <capability>urn:ietf:params:netconf:capability:url:1.0?protocol=http,ftp,file</capability>
     <capability>http://xml.juniper.net/netconf/junos/1.0</capability>
     <capability>http://xml.juniper.net/dmi/system/1.0</capability>
   </capabilities>
@@ -75,7 +75,7 @@ var deviceHelloTests = []struct {
 		TestFunc: func(h *HelloMessage) interface{} {
 			return h.Capabilities[0]
 		},
-		Expected: "urn:ietf:params:xml:ns:netconf:base:1.0",
+		Expected: "urn:ietf:params:netconf:base:1.0",
 	},
 }
 
@@ -120,7 +120,7 @@ var clientHelloTests = []struct {
 		TestFunc: func(h *HelloMessage) interface{} {
 			return h.Capabilities[0]
 		},
-		Expected: "urn:ietf:params:xml:ns:netconf:base:1.0",
+		Expected: "urn:ietf:params:netconf:base:1.0",
 	},
 }
 
