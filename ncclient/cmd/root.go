@@ -28,6 +28,8 @@ func RootCmd(name string) *cobra.Command {
 	c.AddCommand(
 		GetCmd(),
 		GetConfigCmd(),
+		EditConfigCmd(),
+		CommitCmd(),
 	)
 	return c
 }
