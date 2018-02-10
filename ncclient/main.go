@@ -9,7 +9,7 @@ import (
 )
 
 func main() {
-	if err := cmd.RootCmd("ncsh").Execute(); err != nil {
+	if err := cmd.RootCmd("ncclient").Execute(); err != nil {
 		os.Exit(1)
 	}
 
