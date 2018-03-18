@@ -15,7 +15,7 @@ type EditConfigCommand struct {
 }
 
 func (c *EditConfigCommand) SetFlags(cmd *cobra.Command) *cobra.Command {
-	cmd.PersistentFlags().StringVarP(&c.Ope, "operation", "d", "replace", "default-operation(replace/none/merge).")
+	cmd.PersistentFlags().StringVarP(&c.Ope, "operation", "d", "merge", "default-operation(replace/none/merge).")
 	cmd.PersistentFlags().BoolVarP(&c.Commit, "commit", "c", false, "Commit on success.")
 	return c.Command.SetFlags(cmd)
 }
